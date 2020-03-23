@@ -66,6 +66,7 @@ public class MainController {
         User user = (User) session.getAttribute("user");
         System.out.println("ceshi12");
         logger.debug("来了？");
+        System.out.println("第三次测试");
         if (user == null) {
             userid = null;
         } else {
