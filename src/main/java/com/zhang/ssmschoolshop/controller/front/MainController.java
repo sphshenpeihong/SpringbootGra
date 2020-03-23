@@ -18,8 +18,7 @@ import org.slf4j.LoggerFactory;
 
 @Controller
 public class MainController {
-    
-    private final static Logger logger = LoggerFactory.getLogger(MainController.class);
+
 
     @Autowired
     private CateService cateService;
@@ -65,7 +64,7 @@ public class MainController {
         Integer userid;
         User user = (User) session.getAttribute("user");
         System.out.println("ceshi12");
-        logger.debug("来了？");
+        System.out.println("抱一抱 三阿森纳三三年");
         if (user == null) {
             userid = null;
         } else {
