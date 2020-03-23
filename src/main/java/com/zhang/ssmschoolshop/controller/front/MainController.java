@@ -18,7 +18,7 @@ import org.slf4j.LoggerFactory;
 
 @Controller
 public class MainController {
-    
+
     private final static Logger logger = LoggerFactory.getLogger(MainController.class);
 
     @Autowired
