@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.zhang.ssmschoolshop.dao.AdminMapper">
-  <resultMap id="BaseResultMap" type="com.zhang.ssmschoolshop.entity.Admin">
+<mapper namespace="com.shen.ssmschoolshop.dao.AdminMapper">
+  <resultMap id="BaseResultMap" type="com.shen.ssmschoolshop.entity.Admin">
     <id column="adminId" jdbcType="INTEGER" property="adminid" />
     <result column="adminName" jdbcType="VARCHAR" property="adminname" />
     <result column="password" jdbcType="VARCHAR" property="password" />
@@ -67,7 +67,7 @@
   <sql id="Base_Column_List">
     adminId, adminName, password
   </sql>
-  <select id="selectByExample" parameterType="com.zhang.ssmschoolshop.entity.AdminExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.shen.ssmschoolshop.entity.AdminExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -87,7 +87,7 @@
     from admin
     where adminId = #{adminid,jdbcType=INTEGER}
   </select>
-  <select id="selectByName" parameterType="com.zhang.ssmschoolshop.entity.Admin" resultMap="BaseResultMap">
+  <select id="selectByName" parameterType="com.shen.ssmschoolshop.entity.Admin" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from admin
@@ -100,19 +100,19 @@
     delete from admin
     where adminId = #{adminid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.zhang.ssmschoolshop.entity.AdminExample">
+  <delete id="deleteByExample" parameterType="com.shen.ssmschoolshop.entity.AdminExample">
     delete from admin
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.zhang.ssmschoolshop.entity.Admin">
+  <insert id="insert" parameterType="com.shen.ssmschoolshop.entity.Admin">
     insert into admin (adminId, adminName, password
       )
     values (#{adminid,jdbcType=INTEGER}, #{adminname,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.zhang.ssmschoolshop.entity.Admin">
+  <insert id="insertSelective" parameterType="com.shen.ssmschoolshop.entity.Admin">
     insert into admin
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="adminid != null">
@@ -137,7 +137,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.zhang.ssmschoolshop.entity.AdminExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.shen.ssmschoolshop.entity.AdminExample" resultType="java.lang.Long">
     select count(*) from admin
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -169,7 +169,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.zhang.ssmschoolshop.entity.Admin">
+  <update id="updateByPrimaryKeySelective" parameterType="com.shen.ssmschoolshop.entity.Admin">
     update admin
     <set>
       <if test="adminname != null">
@@ -181,7 +181,7 @@
     </set>
     where adminId = #{adminid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.zhang.ssmschoolshop.entity.Admin">
+  <update id="updateByPrimaryKey" parameterType="com.shen.ssmschoolshop.entity.Admin">
     update admin
     set adminName = #{adminname,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR}

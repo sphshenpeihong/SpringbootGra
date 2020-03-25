@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.zhang.ssmschoolshop.dao.CommentMapper">
-  <resultMap id="BaseResultMap" type="com.zhang.ssmschoolshop.entity.Comment">
+<mapper namespace="com.shen.ssmschoolshop.dao.CommentMapper">
+  <resultMap id="BaseResultMap" type="com.shen.ssmschoolshop.entity.Comment">
     <id column="commentId" jdbcType="INTEGER" property="commentid" />
     <result column="userId" jdbcType="INTEGER" property="userid" />
     <result column="goodsId" jdbcType="INTEGER" property="goodsid" />
@@ -70,7 +70,7 @@
   <sql id="Base_Column_List">
     commentId, userId, goodsId, point, content, commentTime
   </sql>
-  <select id="selectByExample" parameterType="com.zhang.ssmschoolshop.entity.CommentExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.shen.ssmschoolshop.entity.CommentExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -94,13 +94,13 @@
     delete from comment
     where commentId = #{commentid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.zhang.ssmschoolshop.entity.CommentExample">
+  <delete id="deleteByExample" parameterType="com.shen.ssmschoolshop.entity.CommentExample">
     delete from comment
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.zhang.ssmschoolshop.entity.Comment">
+  <insert id="insert" parameterType="com.shen.ssmschoolshop.entity.Comment">
     insert into comment (commentId, userId, goodsId, 
       point, content, commentTime
       )
@@ -108,7 +108,7 @@
       #{point,jdbcType=INTEGER}, #{content,jdbcType=VARCHAR}, #{commenttime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.zhang.ssmschoolshop.entity.Comment">
+  <insert id="insertSelective" parameterType="com.shen.ssmschoolshop.entity.Comment">
     insert into comment
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="commentid != null">
@@ -151,7 +151,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.zhang.ssmschoolshop.entity.CommentExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.shen.ssmschoolshop.entity.CommentExample" resultType="java.lang.Long">
     select count(*) from comment
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -195,7 +195,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.zhang.ssmschoolshop.entity.Comment">
+  <update id="updateByPrimaryKeySelective" parameterType="com.shen.ssmschoolshop.entity.Comment">
     update comment
     <set>
       <if test="userid != null">
@@ -216,7 +216,7 @@
     </set>
     where commentId = #{commentid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.zhang.ssmschoolshop.entity.Comment">
+  <update id="updateByPrimaryKey" parameterType="com.shen.ssmschoolshop.entity.Comment">
     update comment
     set userId = #{userid,jdbcType=INTEGER},
       goodsId = #{goodsid,jdbcType=INTEGER},

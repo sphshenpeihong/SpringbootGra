@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.zhang.ssmschoolshop.dao.CategoryMapper">
-  <resultMap id="BaseResultMap" type="com.zhang.ssmschoolshop.entity.Category">
+<mapper namespace="com.shen.ssmschoolshop.dao.CategoryMapper">
+  <resultMap id="BaseResultMap" type="com.shen.ssmschoolshop.entity.Category">
     <id column="cateId" jdbcType="INTEGER" property="cateid" />
     <result column="cateName" jdbcType="VARCHAR" property="catename" />
   </resultMap>
@@ -66,7 +66,7 @@
   <sql id="Base_Column_List">
     cateId, cateName
   </sql>
-  <select id="selectByExample" parameterType="com.zhang.ssmschoolshop.entity.CategoryExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.shen.ssmschoolshop.entity.CategoryExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -80,7 +80,7 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByExampleLimit" parameterType="com.zhang.ssmschoolshop.entity.CategoryExample" resultMap="BaseResultMap">
+  <select id="selectByExampleLimit" parameterType="com.shen.ssmschoolshop.entity.CategoryExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -105,17 +105,17 @@
     delete from category
     where cateId = #{cateid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.zhang.ssmschoolshop.entity.CategoryExample">
+  <delete id="deleteByExample" parameterType="com.shen.ssmschoolshop.entity.CategoryExample">
     delete from category
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.zhang.ssmschoolshop.entity.Category">
+  <insert id="insert" parameterType="com.shen.ssmschoolshop.entity.Category">
     insert into category (cateId, cateName)
     values (#{cateid,jdbcType=INTEGER}, #{catename,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.zhang.ssmschoolshop.entity.Category">
+  <insert id="insertSelective" parameterType="com.shen.ssmschoolshop.entity.Category">
     insert into category
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="cateid != null">
@@ -134,7 +134,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.zhang.ssmschoolshop.entity.CategoryExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.shen.ssmschoolshop.entity.CategoryExample" resultType="java.lang.Long">
     select count(*) from category
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -162,7 +162,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.zhang.ssmschoolshop.entity.Category">
+  <update id="updateByPrimaryKeySelective" parameterType="com.shen.ssmschoolshop.entity.Category">
     update category
     <set>
       <if test="catename != null">
@@ -171,7 +171,7 @@
     </set>
     where cateId = #{cateid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.zhang.ssmschoolshop.entity.Category">
+  <update id="updateByPrimaryKey" parameterType="com.shen.ssmschoolshop.entity.Category">
     update category
     set cateName = #{catename,jdbcType=VARCHAR}
     where cateId = #{cateid,jdbcType=INTEGER}

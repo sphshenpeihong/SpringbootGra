@@ -22,7 +22,7 @@ spring:
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.zhang.ssmschoolshop.entity
+  type-aliases-package: com.shen.ssmschoolshop.entity
    #devtools插件
 devtools:
     restart:
@@ -36,4 +36,4 @@ pagehelper:
   # 打印sql
 logging:
     level:
-       com.zhang.ssmschoolshop.dao: DEBUG
+       com.shen.ssmschoolshop.dao: DEBUG

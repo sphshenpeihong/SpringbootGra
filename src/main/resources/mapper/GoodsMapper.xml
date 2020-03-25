@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.zhang.ssmschoolshop.dao.GoodsMapper">
-  <resultMap id="BaseResultMap" type="com.zhang.ssmschoolshop.entity.Goods">
+<mapper namespace="com.shen.ssmschoolshop.dao.GoodsMapper">
+  <resultMap id="BaseResultMap" type="com.shen.ssmschoolshop.entity.Goods">
     <id column="goodsId" jdbcType="INTEGER" property="goodsid" />
     <result column="goodsName" jdbcType="VARCHAR" property="goodsname" />
     <result column="price" jdbcType="INTEGER" property="price" />
@@ -11,7 +11,7 @@
     <result column="detailCate" jdbcType="VARCHAR" property="detailcate" />
     <result column="activityId" jdbcType="INTEGER" property="activityid" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.zhang.ssmschoolshop.entity.Goods">
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.shen.ssmschoolshop.entity.Goods">
     <result column="description" jdbcType="LONGVARCHAR" property="description" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -79,7 +79,7 @@
     description
   </sql>
 
-  <select id="selectByExampleWithBLOBs" parameterType="com.zhang.ssmschoolshop.entity.GoodsExample" resultMap="ResultMapWithBLOBs">
+  <select id="selectByExampleWithBLOBs" parameterType="com.shen.ssmschoolshop.entity.GoodsExample" resultMap="ResultMapWithBLOBs">
     select
     <if test="distinct">
       distinct
@@ -96,7 +96,7 @@
     </if>
   </select>
 
-  <select id="selectByExampleWithBLOBsLimit" parameterType="com.zhang.ssmschoolshop.entity.GoodsExample" resultMap="ResultMapWithBLOBs">
+  <select id="selectByExampleWithBLOBsLimit" parameterType="com.shen.ssmschoolshop.entity.GoodsExample" resultMap="ResultMapWithBLOBs">
     select
     <if test="distinct">
       distinct
@@ -113,7 +113,7 @@
     </if>
     limit 10
   </select>
-  <select id="selectByExample" parameterType="com.zhang.ssmschoolshop.entity.GoodsExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.shen.ssmschoolshop.entity.GoodsExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -139,13 +139,13 @@
     delete from goods
     where goodsId = #{goodsid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.zhang.ssmschoolshop.entity.GoodsExample">
+  <delete id="deleteByExample" parameterType="com.shen.ssmschoolshop.entity.GoodsExample">
     delete from goods
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.zhang.ssmschoolshop.entity.Goods">
+  <insert id="insert" parameterType="com.shen.ssmschoolshop.entity.Goods">
     insert into goods (goodsId, goodsName, price, 
       num, upTime, category, 
       detailCate, activityId, description
@@ -155,7 +155,7 @@
       #{detailcate,jdbcType=VARCHAR}, #{activityid,jdbcType=INTEGER}, #{description,jdbcType=LONGVARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.zhang.ssmschoolshop.entity.Goods" useGeneratedKeys="true" keyProperty="goodsid">
+  <insert id="insertSelective" parameterType="com.shen.ssmschoolshop.entity.Goods" useGeneratedKeys="true" keyProperty="goodsid">
     insert into goods
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="goodsid != null">
@@ -216,7 +216,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.zhang.ssmschoolshop.entity.GoodsExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.shen.ssmschoolshop.entity.GoodsExample" resultType="java.lang.Long">
     select count(*) from goods
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -286,7 +286,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.zhang.ssmschoolshop.entity.Goods">
+  <update id="updateByPrimaryKeySelective" parameterType="com.shen.ssmschoolshop.entity.Goods">
     update goods
     <set>
       <if test="goodsname != null">
@@ -316,7 +316,7 @@
     </set>
     where goodsId = #{goodsid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.zhang.ssmschoolshop.entity.Goods">
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.shen.ssmschoolshop.entity.Goods">
     update goods
     set goodsName = #{goodsname,jdbcType=VARCHAR},
       price = #{price,jdbcType=INTEGER},
@@ -328,7 +328,7 @@
       description = #{description,jdbcType=LONGVARCHAR}
     where goodsId = #{goodsid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.zhang.ssmschoolshop.entity.Goods">
+  <update id="updateByPrimaryKey" parameterType="com.shen.ssmschoolshop.entity.Goods">
     update goods
     set goodsName = #{goodsname,jdbcType=VARCHAR},
       price = #{price,jdbcType=INTEGER},

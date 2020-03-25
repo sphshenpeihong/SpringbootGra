@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.zhang.ssmschoolshop.dao.OrderMapper">
-  <resultMap id="BaseResultMap" type="com.zhang.ssmschoolshop.entity.Order">
+<mapper namespace="com.shen.ssmschoolshop.dao.OrderMapper">
+  <resultMap id="BaseResultMap" type="com.shen.ssmschoolshop.entity.Order">
     <id column="orderId" jdbcType="INTEGER" property="orderid" />
     <result column="userId" jdbcType="INTEGER" property="userid" />
     <result column="orderTime" jdbcType="TIMESTAMP" property="ordertime" />
@@ -75,7 +75,7 @@
     orderId, userId, orderTime, oldPrice, newPrice, isPay, isSend, isReceive, isComplete, 
     addressId
   </sql>
-  <select id="selectByExample" parameterType="com.zhang.ssmschoolshop.entity.OrderExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.shen.ssmschoolshop.entity.OrderExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -99,13 +99,13 @@
     delete from indent
     where orderId = #{orderid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.zhang.ssmschoolshop.entity.OrderExample">
+  <delete id="deleteByExample" parameterType="com.shen.ssmschoolshop.entity.OrderExample">
     delete from indent
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.zhang.ssmschoolshop.entity.Order">
+  <insert id="insert" parameterType="com.shen.ssmschoolshop.entity.Order">
     insert into indent (orderId, userId, orderTime, 
       oldPrice, newPrice, isPay, isSend, 
       isReceive, isComplete, addressId
@@ -115,7 +115,7 @@
       #{isreceive,jdbcType=BIT}, #{iscomplete,jdbcType=BIT}, #{addressid,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.zhang.ssmschoolshop.entity.Order" useGeneratedKeys="true" keyProperty="orderid">
+  <insert id="insertSelective" parameterType="com.shen.ssmschoolshop.entity.Order" useGeneratedKeys="true" keyProperty="orderid">
     insert into indent
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="orderid != null">
@@ -182,7 +182,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.zhang.ssmschoolshop.entity.OrderExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.shen.ssmschoolshop.entity.OrderExample" resultType="java.lang.Long">
     select count(*) from indent
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -242,7 +242,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.zhang.ssmschoolshop.entity.Order">
+  <update id="updateByPrimaryKeySelective" parameterType="com.shen.ssmschoolshop.entity.Order">
     update indent
     <set>
       <if test="userid != null">
@@ -275,7 +275,7 @@
     </set>
     where orderId = #{orderid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.zhang.ssmschoolshop.entity.Order">
+  <update id="updateByPrimaryKey" parameterType="com.shen.ssmschoolshop.entity.Order">
     update indent
     set userId = #{userid,jdbcType=INTEGER},
       orderTime = #{ordertime,jdbcType=TIMESTAMP},

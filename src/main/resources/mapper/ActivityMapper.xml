@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.zhang.ssmschoolshop.dao.ActivityMapper">
-  <resultMap id="BaseResultMap" type="com.zhang.ssmschoolshop.entity.Activity">
+<mapper namespace="com.shen.ssmschoolshop.dao.ActivityMapper">
+  <resultMap id="BaseResultMap" type="com.shen.ssmschoolshop.entity.Activity">
     <id column="activityId" jdbcType="INTEGER" property="activityid" />
     <result column="activityName" jdbcType="VARCHAR" property="activityname" />
     <result column="activityDes" jdbcType="VARCHAR" property="activitydes" />
@@ -73,7 +73,7 @@
     activityId, activityName, activityDes, discount, fullPrice, reducePrice, fullNum, 
     reduceNum
   </sql>
-  <select id="selectByExample" parameterType="com.zhang.ssmschoolshop.entity.ActivityExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.shen.ssmschoolshop.entity.ActivityExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -97,13 +97,13 @@
     delete from activity
     where activityId = #{activityid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.zhang.ssmschoolshop.entity.ActivityExample">
+  <delete id="deleteByExample" parameterType="com.shen.ssmschoolshop.entity.ActivityExample">
     delete from activity
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.zhang.ssmschoolshop.entity.Activity">
+  <insert id="insert" parameterType="com.shen.ssmschoolshop.entity.Activity">
     insert into activity (activityId, activityName, activityDes, 
       discount, fullPrice, reducePrice, 
       fullNum, reduceNum)
@@ -111,7 +111,7 @@
       #{discount,jdbcType=REAL}, #{fullprice,jdbcType=INTEGER}, #{reduceprice,jdbcType=INTEGER}, 
       #{fullnum,jdbcType=INTEGER}, #{reducenum,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.zhang.ssmschoolshop.entity.Activity">
+  <insert id="insertSelective" parameterType="com.shen.ssmschoolshop.entity.Activity">
     insert into activity
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="activityid != null">
@@ -166,7 +166,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.zhang.ssmschoolshop.entity.ActivityExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.shen.ssmschoolshop.entity.ActivityExample" resultType="java.lang.Long">
     select count(*) from activity
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -218,7 +218,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.zhang.ssmschoolshop.entity.Activity">
+  <update id="updateByPrimaryKeySelective" parameterType="com.shen.ssmschoolshop.entity.Activity">
     update activity
     <set>
       <if test="activityname != null">
@@ -245,7 +245,7 @@
     </set>
     where activityId = #{activityid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.zhang.ssmschoolshop.entity.Activity">
+  <update id="updateByPrimaryKey" parameterType="com.shen.ssmschoolshop.entity.Activity">
     update activity
     set activityName = #{activityname,jdbcType=VARCHAR},
       activityDes = #{activitydes,jdbcType=VARCHAR},

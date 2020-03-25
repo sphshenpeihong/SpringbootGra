@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.zhang.ssmschoolshop.dao.FavoriteMapper">
-  <resultMap id="BaseResultMap" type="com.zhang.ssmschoolshop.entity.Favorite">
+<mapper namespace="com.shen.ssmschoolshop.dao.FavoriteMapper">
+  <resultMap id="BaseResultMap" type="com.shen.ssmschoolshop.entity.Favorite">
     <id column="userId" jdbcType="INTEGER" property="userid" />
     <id column="goodsId" jdbcType="INTEGER" property="goodsid" />
     <result column="collectTime" jdbcType="TIMESTAMP" property="collecttime" />
@@ -67,7 +67,7 @@
   <sql id="Base_Column_List">
     userId, goodsId, collectTime
   </sql>
-  <select id="selectByExample" parameterType="com.zhang.ssmschoolshop.entity.FavoriteExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.shen.ssmschoolshop.entity.FavoriteExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -81,31 +81,31 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="com.zhang.ssmschoolshop.entity.FavoriteKey" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="com.shen.ssmschoolshop.entity.FavoriteKey" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from collection
     where userId = #{userid,jdbcType=INTEGER}
       and goodsId = #{goodsid,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="com.zhang.ssmschoolshop.entity.FavoriteKey">
+  <delete id="deleteByPrimaryKey" parameterType="com.shen.ssmschoolshop.entity.FavoriteKey">
     delete from collection
     where userId = #{userid,jdbcType=INTEGER}
       and goodsId = #{goodsid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.zhang.ssmschoolshop.entity.FavoriteExample">
+  <delete id="deleteByExample" parameterType="com.shen.ssmschoolshop.entity.FavoriteExample">
     delete from collection
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.zhang.ssmschoolshop.entity.Favorite">
+  <insert id="insert" parameterType="com.shen.ssmschoolshop.entity.Favorite">
     insert into collection (userId, goodsId, collectTime
       )
     values (#{userid,jdbcType=INTEGER}, #{goodsid,jdbcType=INTEGER}, #{collecttime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.zhang.ssmschoolshop.entity.Favorite">
+  <insert id="insertSelective" parameterType="com.shen.ssmschoolshop.entity.Favorite">
     insert into collection
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="userid != null">
@@ -130,7 +130,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.zhang.ssmschoolshop.entity.FavoriteExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.shen.ssmschoolshop.entity.FavoriteExample" resultType="java.lang.Long">
     select count(*) from collection
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -162,7 +162,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.zhang.ssmschoolshop.entity.Favorite">
+  <update id="updateByPrimaryKeySelective" parameterType="com.shen.ssmschoolshop.entity.Favorite">
     update collection
     <set>
       <if test="collecttime != null">
@@ -172,7 +172,7 @@
     where userId = #{userid,jdbcType=INTEGER}
       and goodsId = #{goodsid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.zhang.ssmschoolshop.entity.Favorite">
+  <update id="updateByPrimaryKey" parameterType="com.shen.ssmschoolshop.entity.Favorite">
     update collection
     set collectTime = #{collecttime,jdbcType=TIMESTAMP}
     where userId = #{userid,jdbcType=INTEGER}
