@@ -122,7 +122,7 @@ public class MainController {
                     goods.setFav(true);
                 }
             }
-
+            //由于商品表和商品的图片地址表分开，所以需要遍历查询
             List<ImagePath> imagePathList = goodsService.findImagePath(goods.getGoodsid());
             goods.setImagePaths(imagePathList);
             goodsAndImage.add(goods);

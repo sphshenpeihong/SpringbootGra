@@ -29,7 +29,7 @@
     <div class="login">
         <div class="row">
             <div class="col-md-6">
-                <img src="${pageContext.request.contextPath}/image/register.png" width="450" height="600" alt="" style="margin-left: 40px;">
+                <img src="${pageContext.request.contextPath}/image/register007.jpg" width="450" height="400" alt="" style="margin-left: 40px;">
             </div>
             <div class="col-md-5 form-register">
                 <div>
