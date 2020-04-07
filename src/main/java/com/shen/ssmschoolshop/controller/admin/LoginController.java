@@ -7,7 +7,7 @@ import com.shen.ssmschoolshop.util.Md5Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -24,7 +24,8 @@ public class LoginController {
         return "adminLogin";
     }
 
-    @RequestMapping("/confirmLogin")
+    @RequestMapping(value = "/confirmLogin")
+    //客户端传了账号和密码到服务器端，形参若是类类型接收，则Springmvc规定要是其成员变量才行
     public String confirmLogin(Admin admin, Model model, HttpServletRequest request) {
         admin.setPassword(Md5Util.MD5Encode(admin.getPassword(),"utf-8"));
         Admin selectAdmin = adminService.selectByName(admin);

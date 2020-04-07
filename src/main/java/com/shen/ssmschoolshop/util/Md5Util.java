@@ -3,7 +3,7 @@ package com.shen.ssmschoolshop.util;
 import java.security.MessageDigest;
 
 /**
- * @author created by shendazhuang
+ * @author created by shenpeihong
  * @version v.0.1
  * @Description TODO
  * @date 2019/4/26
@@ -14,9 +14,9 @@ public class Md5Util {
     private static final String hexDigIts[] = {"0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"};
 
     /**
-     * MD5加密
+     *
      * @param origin 字符
-     * @param charsetname 编码
+     * @param charsetname 编码MD5加密
      * @return
      */
     public static String MD5Encode(String origin, String charsetname){
