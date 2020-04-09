@@ -28,6 +28,12 @@ public class MainController {
     private GoodsService goodsService;
 
 
+    /**
+     * tomcat启动时，调用该接口，从库取出前台页面将渲染的数据，然后请求转发到main.jsp
+     * @param model
+     * @param session
+     * @return
+     */
     @RequestMapping("/")
     public String showAdmin(Model model, HttpSession session) {
         Integer userid;
@@ -57,16 +63,16 @@ public class MainController {
         return "main";
     }
 
-
-
-
+    /**
+     * 该接口作用与默认/一样
+     * @param model
+     * @param session
+     * @return
+     */
     @RequestMapping("/main")
     public String showAllGoods(Model model, HttpSession session) {
         Integer userid;
         User user = (User) session.getAttribute("user");
-        System.out.println("ceshi12");
-        logger.debug("来了？");
-        System.out.println("第三次测试");
         if (user == null) {
             userid = null;
         } else {
@@ -88,6 +94,12 @@ public class MainController {
         return "main";
     }
 
+    /**
+     * 通过商品类别和当前客户userId查出页面渲染的数据商品 通过userId是获取客户是否对某件商品感兴趣
+     * @param cate
+     * @param userid
+     * @return
+     */
     public List<Goods> getCateGoods(String cate, Integer userid) {
         //查询分类
         CategoryExample digCategoryExample = new CategoryExample();

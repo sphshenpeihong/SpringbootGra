@@ -228,7 +228,7 @@
                                 </dl>
                             </div>
                         </li>
-                        <li class="list-group-item"><a href="${pageContext.request.contextPath}/category?cate=装饰品">装饰品</a>
+                        <li class="list-group-item"><a href="${pageContext.request.contextPath}/category?cate=装饰品">佩戴</a>
                             <div class="sort-detail">
                                 <dl class="dl-hor">
                                     <dt>
@@ -277,7 +277,7 @@
                                 </dl>
                             </div>
                         </li>
-                        <li class="list-group-item"><a href="${pageContext.request.contextPath}/category?cate=学习用品">学习用品</a>
+                        <li class="list-group-item"><a href="${pageContext.request.contextPath}/category?cate=学习用品">学习</a>
                             <div class="sort-detail">
                                 <dl class="dl-hor">
                                     <dt>
@@ -313,7 +313,7 @@
                                 </dl>
                             </div>
                         </li>
-                        <li class="list-group-item"><a href="${pageContext.request.contextPath}/category?cate=闲置百货">百货</a>
+                        <li class="list-group-item"><a href="${pageContext.request.contextPath}/category?cate=居家">居家</a>
                             <div class="sort-detail">
                                 <dl class="dl-hor">
                                     <dt>
