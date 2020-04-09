@@ -107,27 +107,39 @@ public class GoodsController {
         return Msg.success("删除成功!");
     }
 
+    /**
+     * 后台管理 -> 商品管理 -> 添加商品
+     * @param goods
+     * @param fileToUpload
+     * @param request
+     * @param response
+     * @param redirectAttributes
+     * @return
+     * @throws IOException
+     */
     @RequestMapping("/addGoodsSuccess")
-    public String addGoods(Goods goods,
-                           @RequestParam MultipartFile[] fileToUpload,
+    public String addGoods(Goods goods,//直接用GoodsPO类去接收，直接子属性对接映射
+                           @RequestParam MultipartFile[] fileToUpload,//上传图片可能不止一张，所以用数组接收
                            HttpServletRequest request,
                            HttpServletResponse response,
                            RedirectAttributes redirectAttributes) throws IOException {
         /*goods.setCategory(1);*/
         goods.setUptime(new Date());
+        //添加商品默认情况下,设置成活动ID为1的活动
         goods.setActivityid(1);
         goodsService.addGoods(goods);
         for (MultipartFile multipartFile : fileToUpload) {
             String fileName = goods.getGoodsname()+ multipartFile.getOriginalFilename();
             if (multipartFile != null) {
+                //文件名加UUID处理 以及 将图片存放到指定的硬盘当中
                String ImagePath= ImageUtil.imagePath(multipartFile,fileName);
                System.out.println("最后存入数据的图片名字为:"+ImagePath);
-                //把图片路径存入数据库中
+                //把图片路径存入数据库中  不但是要将图片存到指定硬盘，而且路径也要保存到库中(全路径还是相对路径自己考虑)
               goodsService.addImagePath(new ImagePath(null, goods.getGoodsid(), ImagePath));
 
             }
         }
-
+        //由于跳转方式是重定向，不共享request域，但是想传参，所以需要在这里添加key/value
         redirectAttributes.addFlashAttribute("succeseMsg", "商品添加成功!");
 
         return "redirect:/admin/goods/add";

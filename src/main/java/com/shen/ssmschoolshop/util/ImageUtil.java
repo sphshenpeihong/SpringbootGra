@@ -32,7 +32,7 @@ public class ImageUtil {
             dest.getParentFile().mkdir();
         }
         try {
-            //根据系统的不同，保存到不同的路径
+            //根据系统的不同，保存到不同的路径 将图片保存到指定硬盘中
             file.transferTo(dest);
             return fileName;
         } catch (IllegalStateException e) {

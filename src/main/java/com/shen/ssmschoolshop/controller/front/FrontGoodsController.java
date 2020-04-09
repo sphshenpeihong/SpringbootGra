@@ -25,6 +25,13 @@ import java.util.Map;
 @Controller
 public class FrontGoodsController {
 
+    public static void main(String[] args) {
+        Map<String,Object> map = new HashMap<String,Object>();
+        map.put("one", "aaa");
+        map.put("two", "bbb");
+        System.out.println(map);
+    }
+
     @Autowired
     private GoodsService goodsService;
 
@@ -40,6 +47,13 @@ public class FrontGoodsController {
     @Autowired
     private ActivityService activityService;
 
+    /**
+     * 通过商品ID查询该商品的详细信息
+     * @param goodsid
+     * @param model
+     * @param session
+     * @return
+     */
     @RequestMapping(value = "/detail",method = RequestMethod.GET)
     public String detailGoods(Integer goodsid, Model model, HttpSession session) {
 
@@ -52,24 +66,26 @@ public class FrontGoodsController {
         //要传回的数据存在HashMap中
         Map<String,Object> goodsInfo = new HashMap<String,Object>();
 
-        //查询商品的基本信息
+        //查询商品的基本信息 chazhao goods表通过goodsid查找商品的详情信息
         Goods goods = goodsService.selectById(goodsid);
 
         if (user == null) {
             goods.setFav(false);
         } else {
+            //通过当前商品ID和userid判断是否存在于collection收藏表 若不为Null 则代表当前商品存在于当前用户的收藏夹中
             Favorite favorite = goodsService.selectFavByKey(new FavoriteKey(user.getUserid(), goodsid));
             if (favorite == null) {
                 goods.setFav(false);
             } else {
+                //若存在，则设置商品详情信息的Fav偏爱字段为true
                 goods.setFav(true);
             }
         }
 
-        //查询商品类别
+        //查询商品类别 到时候前端你需要渲染
         Category category = cateService.selectById(goods.getCategory());
 
-        //商品图片
+        //商品图片 通过商品ID查找商品图片存放位置表 使用List接收，因为新增商品时，一件商品可以上传多张图片
         List<ImagePath> imagePath = goodsService.findImagePath(goodsid);
 
         //商品评论
@@ -179,6 +195,14 @@ public class FrontGoodsController {
         return Msg.success("取消收藏成功");
     }
 
+    /**
+     * 根据商品类别去查询商品表 取出分页展示，每页16条记录
+     * @param cate
+     * @param pn
+     * @param model
+     * @param session
+     * @return
+     */
     @RequestMapping("/category")
     public String getCateGoods(String cate, @RequestParam(value = "page",defaultValue = "1") Integer pn, Model model, HttpSession session) {
         User user = (User) session.getAttribute("user");
@@ -228,15 +252,12 @@ public class FrontGoodsController {
             goodsList.set(i, goods);
         }
 
-
         //显示几个页号
         PageInfo page = new PageInfo(goodsList,5);
         model.addAttribute("pageInfo", page);
         model.addAttribute("cate", cate);
         return "category";
     }
-
-
 
     @RequestMapping("/comment")
     @ResponseBody
