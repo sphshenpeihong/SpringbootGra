@@ -6,7 +6,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>华广商城-欢迎登录</title>
+<title>购物商城-欢迎登录</title>
 <script src="${pageContext.request.contextPath}/js/jquery.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
@@ -54,12 +54,14 @@
 			<%@ include file="header.jsp"%>
 		</div>
 		<div class="login">
-			<div class="row">
+			<div class="row" style="background-color: beige;">
+				<!-- annotation
 				<div class="col-md-6">
-					<img src="./image/login.png" alt="" width="640" height="400" style="margin-left:-40px;margin-top:30px;">
+					<img src="./image/loginFront1.jpg" alt="" width="620" height="400" style="margin-left:-40px;margin-top:30px">
 				</div>
-				<div class="col-md-5 form-login">
-					<div>
+				 -->
+				<div class="col-md-5 form-login" style="margin-left: 300px;">
+					<div style="margin-top: -30%;margin-left: 50px;">
 						<!-- <h2 class="login-h2">登录</h2> -->
 						<form class="form-horizontal" id="form2" action="${pageContext.request.contextPath}/loginconfirm" method="post">
 							<div class="form-group">
@@ -78,6 +80,7 @@
 							</div>
 							<div class="form-group">
 								<label for="confirmlogo" class="col-sm-2 control-label">验证码</label>
+								<!-- 验证码的随机数通过 -->
 								<img src="${pageContext.request.contextPath}/verificationcodeimg" id="code" onclick="reloadcode()"
 									style="cursor: pointer;" alt="看不清楚,换一张" width="100px">
 								<div class="col-sm-10" style="width: 160px">

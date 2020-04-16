@@ -24,6 +24,7 @@ function confirmOrders(){
 }*/
 $(document).ready(function () {
     var path = $("#path").text();
+    //购物车基本写死页面在jsp 页面渲染的话在js
     showcart();
 
     /*$('.delete-goods').click(function(){

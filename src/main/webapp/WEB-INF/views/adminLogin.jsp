@@ -34,11 +34,11 @@
         }
     </style>
 </head>
-<body class="light-gray-bg">
-<div class="templatemo-content-widget templatemo-login-widget white-bg">
+<body class="light-gray-bg" style="background-color: azure">
+<div class="templatemo-content-widget templatemo-login-widget white-bg" style="margin-top: 220px;">
     <header class="text-center">
-        <div class="square"></div>
-        <h1>管理员登录</h1>
+        <%--<div class="square"></div>--%>
+        <h1>商家后台登录</h1>
     </header>
     <form action="${pageContext.request.contextPath}/admin/confirmLogin" class="templatemo-login-form" method="post">
         <div class="form-group">
@@ -66,6 +66,6 @@
     </form>
 </div>
 
-<div class="button">2020华南理工大学广州学院计算机工程系毕设</div>
+<%--<div class="button"></div>--%>
 </body>
 </html>

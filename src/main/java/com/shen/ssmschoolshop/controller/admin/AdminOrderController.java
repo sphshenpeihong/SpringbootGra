@@ -26,6 +26,13 @@ public class AdminOrderController {
     @Autowired
     private GoodsService goodsService;
 
+    /**
+     * 后台管理员查看订单管理
+     * @param pn
+     * @param model
+     * @param session
+     * @return
+     */
     @RequestMapping("/send")
     public String sendOrder(@RequestParam(value = "page",defaultValue = "1")Integer pn, Model model, HttpSession session) {
 
@@ -80,6 +87,12 @@ public class AdminOrderController {
         return "adminAllOrder";
     }
 
+    /**
+     * 发货
+     * @param orderid
+     * @param session
+     * @return
+     */
     @RequestMapping("/sendGoods")
     public String sendGoods(Integer orderid, HttpSession session) {
         Admin admin = (Admin) session.getAttribute("admin");
@@ -93,6 +106,13 @@ public class AdminOrderController {
         return "redirect:/admin/order/send";
     }
 
+    /**
+     * 后台管理员的订单管理 未收货
+     * @param pn
+     * @param model
+     * @param session
+     * @return
+     */
     @RequestMapping("/receiver")
     public String receiveOrder(@RequestParam(value = "page",defaultValue = "1")Integer pn, Model model, HttpSession session) {
         Admin admin = (Admin) session.getAttribute("admin");
@@ -147,6 +167,13 @@ public class AdminOrderController {
         return "adminOrderReceive";
     }
 
+    /**
+     * 后台管理员的订单管理 点击已完成
+     * @param pn
+     * @param model
+     * @param session
+     * @return
+     */
     @RequestMapping("/complete")
     public String completeOrder(@RequestParam(value = "page", defaultValue = "1") Integer pn, Model model, HttpSession session) {
         Admin admin = (Admin) session.getAttribute("admin");

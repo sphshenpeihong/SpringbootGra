@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>华广商城-个人注册</title>
+    <title>购物商城-个人注册</title>
     <script src="${pageContext.request.contextPath}/js/jquery.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
@@ -21,17 +21,14 @@
     <script src="${pageContext.request.contextPath}/js/validate.js"></script>
 </head>
 
-<body>
+<body style="background-color:azure;">
 <div id="main" class="container">
     <div id="header">
         <%@ include file="header.jsp"%>
     </div>
     <div class="login">
         <div class="row">
-            <div class="col-md-6">
-                <img src="${pageContext.request.contextPath}/image/register007.jpg" width="450" height="400" alt="" style="margin-left: 40px;">
-            </div>
-            <div class="col-md-5 form-register">
+            <div class="col-md-5 form-register" style="margin-left: 400px;">
                 <div>
                     <!-- <h2 class="login-h2">登录</h2> -->
                     <form class="form-horizontal" id="form" action="${pageContext.request.contextPath}/registerresult"

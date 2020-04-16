@@ -32,9 +32,16 @@ public class ActivityController {
     @Autowired(required = false)
     GoodsService goodsService;
 
+    /**
+     * 查询促销活动表的现有活动
+     * @param pn
+     * @param model
+     * @param session
+     * @return
+     */
     @RequestMapping("/show")
     public String showActivity(@RequestParam(value = "page",defaultValue = "1") Integer pn, Model model, HttpSession session) {
-
+        //由于后台登陆时，会把管理员admin key/value存放到session中
         Admin admin = (Admin) session.getAttribute("admin");
         if (admin == null) {
             return "redirect:/admin/login";
@@ -89,6 +96,13 @@ public class ActivityController {
         return "redirect:/admin/activity/show";
     }
 
+    /**
+     * 后台管理员更新促销活动
+     * @param goodsid
+     * @param activityid
+     * @param session
+     * @return
+     */
     @RequestMapping("/update")
     @ResponseBody
     public Msg updateActivity(Integer goodsid, Integer activityid, HttpSession session) {

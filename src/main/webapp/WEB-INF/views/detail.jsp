@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>华广商城-${goodsInfo['goods'].goodsname}</title>
+    <title>购物商城-${goodsInfo['goods'].goodsname}</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -260,7 +260,7 @@
                                     </c:if>
                                 </c:if>
                                 <c:if test="${goodsInfo['goods'].activityid == 1}">
-                                    <span class="sku">暂无优惠，敬请期待！</span>
+                                    <span class="sku">该商品暂无优惠！</span>
                                 </c:if>
                             </span>
                     </div>

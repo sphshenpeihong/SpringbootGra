@@ -83,6 +83,12 @@ public class CustomerController {
         }
     }
 
+    /**
+     * 查看客户个人信息
+     * @param userModel
+     * @param request
+     * @return
+     */
     @RequestMapping("/information")
     public String information(Model userModel, HttpServletRequest request) {
         HttpSession session = request.getSession();
@@ -225,7 +231,7 @@ public class CustomerController {
     }
 
     /**
-     * 收藏商品
+     * 显示用户当前所收藏的商品列表
      * @param pn
      * @param request
      * @param model

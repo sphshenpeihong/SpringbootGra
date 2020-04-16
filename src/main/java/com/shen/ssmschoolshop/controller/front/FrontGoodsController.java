@@ -161,6 +161,12 @@ public class FrontGoodsController {
         return "search";
     }
 
+    /**
+     * 用户将商品添加到收藏夹
+     * @param goodsid
+     * @param session
+     * @return
+     */
     @RequestMapping("/collect")
     @ResponseBody
     public Msg collectGoods(Integer goodsid, HttpSession session) {
@@ -181,6 +187,12 @@ public class FrontGoodsController {
         return Msg.success("收藏成功");
     }
 
+    /**
+     * 用户取消收藏
+     * @param goodsid
+     * @param session
+     * @return
+     */
     @RequestMapping("/deleteCollect")
     @ResponseBody
     public Msg deleteFavGoods(Integer goodsid, HttpSession session) {
@@ -196,7 +208,7 @@ public class FrontGoodsController {
     }
 
     /**
-     * 根据商品类别去查询商品表 取出分页展示，每页16条记录
+     * 根据商品类别去查询商品表 取出分页展示
      * @param cate
      * @param pn
      * @param model
@@ -259,6 +271,12 @@ public class FrontGoodsController {
         return "category";
     }
 
+    /**
+     * 购物完商品后评论
+     * @param comment
+     * @param request
+     * @return
+     */
     @RequestMapping("/comment")
     @ResponseBody
     public Msg comment(Comment comment, HttpServletRequest request){

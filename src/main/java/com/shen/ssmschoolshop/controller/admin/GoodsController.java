@@ -34,6 +34,14 @@ public class GoodsController {
     @Autowired
     private GoodsService goodsService;
 
+    /**
+     * 商家后台管理员编辑商品的信息后点击提交
+     * @param pn
+     * @param response
+     * @param model
+     * @param session
+     * @return
+     */
     @RequestMapping("/showjson")
     @ResponseBody
     public Msg getAllGoods(@RequestParam(value = "page", defaultValue = "1") Integer pn, HttpServletResponse response, Model model, HttpSession session) {
@@ -56,6 +64,15 @@ public class GoodsController {
         return Msg.success("查询成功!").add("pageInfo", page);
     }
 
+    /**
+     * 商家后台管理员商品管理查询
+     * @param pn
+     * @param response
+     * @param model
+     * @param session
+     * @return
+     * @throws IOException
+     */
     @RequestMapping("/show")
     public String goodsManage(@RequestParam(value = "page", defaultValue = "1") Integer pn, HttpServletResponse response, Model model, HttpSession session) throws IOException {
         Admin admin = (Admin) session.getAttribute("admin");

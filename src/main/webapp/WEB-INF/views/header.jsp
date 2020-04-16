@@ -1,8 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.min.css">
-<div class="row">
-    <div class="col-md-4" role="navigation">
+<div class="row" >
+    <div class="col-md-4" role="navigation" style="float: right;width: 18%;">
         <!-- <h1 style="font-size: 20px;margin-top: 9px">东大咸鱼</h1> -->
 
         <ul class="nav nav-pills">
@@ -27,7 +27,7 @@
             <li><a href="${pageContext.request.contextPath}/register">注册</a></li>
         </ul>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-8" style="float: right">
         <ul class="nav nav-pills pull-right">
             <li><a href="${pageContext.request.contextPath}/showcart"> <i
                     class="fa fa-shopping-cart" style="color: #F22E00"></i>
@@ -41,7 +41,7 @@
 </div>
 <div id="header-nav">
     <nav class="navbar navbar-default" id="header-nav-middle">
-        <div class="container-fluid">
+        <div class="container-fluid"  style="background-color: #750000">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed"
@@ -52,13 +52,13 @@
                         class="icon-bar"></span> <span class="icon-bar"></span> <span
                         class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="${pageContext.request.contextPath}/main"><!-- <img alt="Brand" style="display: inline-block;" src="./image/tao.jpg" width="20" height="20"> --><span class="logo-word">华广商城</span></a>
+                <a class="navbar-brand" href="${pageContext.request.contextPath}/main"><!-- <img alt="Brand" style="display: inline-block;" src="./image/tao.jpg" width="20" height="20"> --><span class="logo-word">购物商城</span></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse"
                  id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav" style="margin-left: 400px;">
                     <li><a class="a-color" href="${pageContext.request.contextPath}/main">首页</a></li>
                     <li><a class="a-color" href="${pageContext.request.contextPath}/information">个人信息</a></li>
                     <li class="dropdown"><a class="a-color" href="${pageContext.request.contextPath}/info/list"
@@ -74,7 +74,7 @@
 
                 <form class="navbar-form navbar-right" role="search" method="get" action="${pageContext.request.contextPath}/search">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search" name="keyword">
+                        <input type="text" class="form-control" placeholder="搜一搜" name="keyword">
                     </div>
                     <button type="submit" class="btn btn-default">
                         <span class="glyphicon glyphicon-search" aria-label="搜索"></span>

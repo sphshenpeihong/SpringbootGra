@@ -1,5 +1,6 @@
 
 $(document).ready(function () {
+    //监听结算按钮
     $("#confirm-orders").click(function () {
         // alert("safd");
         var selectAddr =  $('input:radio[name="addressid"]:checked').val();

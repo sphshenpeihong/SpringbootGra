@@ -6,7 +6,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>华广商城-欢迎登录</title>
+<title>购物商城-欢迎登录</title>
 <script src="${pageContext.request.contextPath}/js/jquery.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
@@ -17,33 +17,20 @@
 <script src="${pageContext.request.contextPath}/js/jquery.validate.min.js"></script>
 	<script src="${pageContext.request.contextPath}/js/login.js"></script>
 </head>
-<%--<script>
-
-	$(document).ready(function() {
-
-		
-		$(document).keypress(function(e) {
-			if (e.which == 13) {
-				e.preventDefault();
-				
-				$(".login-input").click();
-				//form.submit();
-			}
-		});
-		input_value();
-	})
-	
-	function input_value() {
-		if (UserID != "null") {
-			document.getElementById("inputEmail3").value = UserID;
-		}
-	}
-</script>--%>
-
 
 
 
 <body>
-	测试页面
+	<%
+		Cookie[] cookies = request.getCookies(); //获取后台传回前端的cookie 数组类型 可能会有许多个
+        System.out.println("response的值："+response.getHeader("head")); //获得本次请求响应头的值
+        request.getSession(); //获得本次请求的相关信息（获得request域的东西）
+	%>
+    <div>
+        <c:forEach items="<%=cookies%>" var="cookie">
+            <!-- 获得的是一个js对象 使用.的形式去取得js对象里面key所对应的值 -->
+            ${cookie.userCookie.getValue()}<br/>
+        </c:forEach>
+    </div>
 </body>
 </html>

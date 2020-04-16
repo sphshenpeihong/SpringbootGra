@@ -23,6 +23,13 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    /**
+     * 后台用户管理展示
+     * @param pn
+     * @param response
+     * @param model
+     * @return
+     */
     @RequestMapping("/showjson")
     @ResponseBody
     public Msg getAllGoods(@RequestParam(value = "page",defaultValue = "1") Integer pn, HttpServletResponse response, Model model) {
@@ -33,7 +40,7 @@ public class UserController {
         PageInfo page = new PageInfo(userList,5);
 
        /* model.addAttribute("pageInfo", page);*/
-
+        //返回一个对象，方法里面封装了对象的成员变量
         return Msg.success("查询成功!").add("pageInfo", page);
     }
 

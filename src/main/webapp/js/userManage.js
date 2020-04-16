@@ -60,6 +60,7 @@ function to_page(path, page) {
 }
 
 function build_user_table(path,result) {
+    //先清空 再查询渲染
     $("#goodsinfo tbody").empty();
     var goods = result.info.pageInfo.list;
     $.each(goods, function (index,item) {

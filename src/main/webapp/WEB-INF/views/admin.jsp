@@ -173,7 +173,7 @@
                 </div>
             </div>
             <footer class="text-right">
-                <div class="button">2020华南理工大学广州学院计算机工程系毕设</div>
+                <div class="button"></div>
                 <p>Copyright &copy; 2019 Company Name
                     | Designed by <a href="http://www.templatemo.com" target="_parent">沈培泓</a></p>
             </footer>

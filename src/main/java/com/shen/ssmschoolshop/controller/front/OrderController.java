@@ -35,6 +35,12 @@ public class OrderController {
     @Autowired
     private ActivityService activityService;
 
+    /**
+     * 点击确认确认订单
+     * @param session
+     * @param model
+     * @return
+     */
     @RequestMapping("/order")
     public String showOrder(HttpSession session, Model model) {
 
@@ -109,6 +115,15 @@ public class OrderController {
         return "orderConfirm";
     }
 
+    /**
+     * 提交订单 确认付款
+     * @param oldPrice
+     * @param newPrice
+     * @param isPay
+     * @param addressid
+     * @param session
+     * @return
+     */
     @RequestMapping("/orderFinish")
     @ResponseBody
     public Msg orderFinish(Float oldPrice, Float newPrice, Boolean isPay, Integer addressid, HttpSession session) {
