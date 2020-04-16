@@ -6,7 +6,7 @@ import java.security.MessageDigest;
  * @author created by shenpeihong
  * @version v.0.1
  * @Description TODO
- * @date 2019/4/26
+ * @date 2020/2/26
  * @备注
  **/
 public class Md5Util {

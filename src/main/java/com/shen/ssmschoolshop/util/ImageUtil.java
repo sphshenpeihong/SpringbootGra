@@ -10,7 +10,7 @@ import java.util.UUID;
  * @author created by shenpeihong
  * @version v.0.1
  * @Description TODO
- * @date 2019/4/30
+ * @date 2020/2/30
  * @备注
  **/
 public class ImageUtil {

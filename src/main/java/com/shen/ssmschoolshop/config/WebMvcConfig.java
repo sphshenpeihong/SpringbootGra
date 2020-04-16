@@ -14,7 +14,7 @@ import java.util.Properties;
  * @author created by Coding shenpeihong
  * @version v.0.1
  * @Description TODO
- * @date 2019/5/10
+ * @date 2020/3/10
  * @备注  springboot内置tomcat配置虚拟路径
  *      linux： /usr/upload  /pictures
  *      window:  d:/upload  /pictures
