@@ -1,10 +1,11 @@
 package com.shen.ssmschoolshop.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class CommentExample {
+public class CommentExample implements Serializable {
     protected String orderByClause;
 
     protected boolean distinct;

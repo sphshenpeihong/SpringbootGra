@@ -1,8 +1,9 @@
 package com.shen.ssmschoolshop.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class ShopCart extends ShopCartKey {
+public class ShopCart extends ShopCartKey implements Serializable {
     private Date catedate;
 
     private Integer goodsnum;

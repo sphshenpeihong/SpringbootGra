@@ -1,6 +1,8 @@
 package com.shen.ssmschoolshop.entity;
 
-public class ImagePath {
+import java.io.Serializable;
+
+public class ImagePath implements Serializable {
     private Integer pathid;
 
     private Integer goodid;

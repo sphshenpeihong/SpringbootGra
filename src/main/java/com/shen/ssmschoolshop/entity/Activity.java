@@ -1,9 +1,11 @@
 package com.shen.ssmschoolshop.entity;
 
+import java.io.Serializable;
+
 /**
  * 促销活动
  */
-public class Activity {
+public class Activity implements Serializable {
 
     private Integer activityid;   //活动id
 

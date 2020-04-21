@@ -1,6 +1,8 @@
 package com.shen.ssmschoolshop.entity;
 
-public class FavoriteKey {
+import java.io.Serializable;
+
+public class FavoriteKey implements Serializable {
     private Integer userid;
 
     private Integer goodsid;

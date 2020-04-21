@@ -1,9 +1,10 @@
 package com.shen.ssmschoolshop.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-public class Goods {
+public class Goods implements Serializable {
     private Integer goodsid;
 
     private String goodsname;

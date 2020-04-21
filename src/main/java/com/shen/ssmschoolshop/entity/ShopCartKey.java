@@ -1,6 +1,8 @@
 package com.shen.ssmschoolshop.entity;
 
-public class ShopCartKey {
+import java.io.Serializable;
+
+public class ShopCartKey implements Serializable {
     private Integer userid;
 
     private Integer goodsid;

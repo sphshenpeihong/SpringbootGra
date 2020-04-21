@@ -1,5 +1,7 @@
 package com.shen.ssmschoolshop.entity;
 
-public class GoodsPrice {
+import java.io.Serializable;
+
+public class GoodsPrice implements Serializable {
 
 }

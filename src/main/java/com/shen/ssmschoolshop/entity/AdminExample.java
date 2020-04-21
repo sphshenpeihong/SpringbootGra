@@ -1,9 +1,10 @@
 package com.shen.ssmschoolshop.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdminExample {
+public class AdminExample implements Serializable {
     protected String orderByClause;
 
     protected boolean distinct;

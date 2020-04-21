@@ -1,6 +1,8 @@
 package com.shen.ssmschoolshop.entity;
 
-public class Category {
+import java.io.Serializable;
+
+public class Category implements Serializable {
     private Integer cateid;
 
     private String catename;
