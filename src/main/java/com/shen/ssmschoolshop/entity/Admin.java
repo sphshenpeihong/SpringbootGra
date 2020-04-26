@@ -9,10 +9,22 @@ public class Admin implements Serializable {
 
     private String password;
 
+    //超管1 普管0
+    private Integer authority;
+
+    public Integer getAuthority() {
+        return authority;
+    }
+
+    public void setAuthority(Integer authority) {
+        this.authority = authority;
+    }
+
     public Admin(Integer adminid, String adminname, String password) {
         this.adminid = adminid;
         this.adminname = adminname;
         this.password = password;
+        this.authority = 0;
     }
 
     public Admin() {

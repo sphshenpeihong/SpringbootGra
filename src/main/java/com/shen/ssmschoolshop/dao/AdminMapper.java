@@ -30,4 +30,16 @@ public interface AdminMapper {
     int updateByPrimaryKeySelective(Admin record);
 
     int updateByPrimaryKey(Admin record);
+
+    /**
+     * 查询admin库的所有管理员
+     * @return
+     */
+    List<Admin> selectAllManager();
+
+    /**
+     * 超管添加单个普通管理员
+     * @param admin
+     */
+    public void addManager(Admin admin);
 }

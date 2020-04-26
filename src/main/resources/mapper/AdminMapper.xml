@@ -65,7 +65,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    adminId, adminName, password
+    adminId, adminName, password,authority
   </sql>
   <select id="selectByExample" parameterType="com.shen.ssmschoolshop.entity.AdminExample" resultMap="BaseResultMap">
     select
@@ -187,4 +187,13 @@
       password = #{password,jdbcType=VARCHAR}
     where adminId = #{adminid,jdbcType=INTEGER}
   </update>
+
+  <select id="selectAllManager" resultType="Admin">
+    SELECT adminId,adminName,authority FROM admin
+  </select>
+
+    <!-- public void addManager(Admin admin); -->
+    <insert id="addManager" parameterType="admin">
+        INSERT INTO admin(adminID,adminName,PASSWORD,authority) VALUES (#{adminid},#{adminname},#{password},#{authority})
+    </insert>
 </mapper>
