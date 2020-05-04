@@ -65,11 +65,6 @@
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
         </dependency>
-        <!-- 允许访问static 静态资源 -->
-        <!--<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        </dependency>-->
 
         <!-- 依赖jsp -->
         <!--<dependency>
@@ -166,25 +161,34 @@
             <artifactId>spring-session-data-redis</artifactId>
         </dependency>
 
-        <!-- 项目引入jedis和common-pool2 -->
+        <!-- 导入Jedis的jar包 玩玩Jedis类提供的方法 -->
         <dependency>
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
-            <version>2.9.0</version>
+            <version>2.7.0</version>
         </dependency>
+        <!-- 使用common-pool管理jedis的连接对象  (对象池)  和c3p0不一样 那个是管理连接数据库的  而common-pool是管理连接redis服务器连接对象的 -->
         <dependency>
-            <groupId>commons-pool</groupId>
-            <artifactId>commons-pool</artifactId>
-            <version>1.6</version>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.3.2</version>
         </dependency>
 
-        <!-- 引入Junit单元测试 -->
+        <!-- 引入fastjson -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.59</version>
+        </dependency>
+
+        <!-- 引入junit -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
+            <!-- 去掉scope作用域，使用默认的compile，编译、测试、运行都有效的作用域 -->
+            <!--<scope>test</scope>-->
         </dependency>
-
     </dependencies>
 
 
