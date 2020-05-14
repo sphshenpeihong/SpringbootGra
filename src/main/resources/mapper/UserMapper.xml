@@ -225,4 +225,9 @@
       telephone = #{telephone,jdbcType=VARCHAR}
     where userId = #{userid,jdbcType=INTEGER}
   </update>
+
+  <!--List<User> getAllUser();-->
+  <select id="getAllUser" resultType="user">
+    select * from user
+  </select>
 </mapper>

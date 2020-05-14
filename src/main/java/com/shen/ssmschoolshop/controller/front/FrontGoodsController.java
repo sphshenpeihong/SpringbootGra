@@ -16,11 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.Date;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 public class FrontGoodsController {
@@ -46,6 +42,26 @@ public class FrontGoodsController {
 
     @Autowired
     private ActivityService activityService;
+
+    /**
+     * 提供定时推荐商品接口 取商品第一条数据传至前端 前端点击图片的话，后端提供接口根据商品ID返回详情信息数据
+     * @param model
+     * @param session
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/getRecommend",method = RequestMethod.GET)
+    public Map<String,Object> getRecommend(Model model, HttpSession session){
+        //rand.nextInt(MAX - MIN + 1) + MIN; // randNumber 将被赋值为一个 MIN 和 MAX 范围内的随机数
+        Random random = new Random();
+        int i = random.nextInt(106 - 104 + 1) + 104;
+        Goods goods = goodsService.selectById(i);
+        List<ImagePath> imagePath = goodsService.findImagePath(i);
+        Map<String,Object> map = new HashMap<String,Object>();
+        map.put("goods",goods);
+        map.put("imagePath",imagePath);
+        return map;
+    }
 
     /**
      * 通过商品ID查询该商品的详细信息

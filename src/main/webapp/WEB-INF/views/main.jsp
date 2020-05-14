@@ -38,6 +38,14 @@
             color:#000;
             text-decoration:none;
         }
+        #ad1{
+            width:530px;
+            height: 530px;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            display: block;
+        }
     </style>
 </head>
 <body style="background-color: azure;">
@@ -48,7 +56,7 @@
 
         <!-- 旋转图 -->
 
-        <%--<div class="header-bottom">
+        <div class="header-bottom">
 
             <div id="mycarousel" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
@@ -85,7 +93,7 @@
             </a>
             </div>
             <div class="clear-float"></div>
-        </div>--%>
+        </div>
     </div>
     <div class="content">
 
@@ -287,7 +295,79 @@
             </div>
         </c:if>
     </div>
+    <div id="ad1" style="text-align: right; border-top: 100px; display: none;" >
+        <span>---商品大甩卖---</span>
+        <button id="closeBtn" style="text-align: left;" onclick="guanbi()">关闭</button>
+        <div id="ad" style="text-align: center">
+            <a id="wo" href=""></a>
+        </div>
+        <%--<input type="image" src="7f81索尼单反相机单反相机.jpg">--%>
+    </div>
 </div>
+<script type="text/javascript">
+    $(function(){
+        setTimeout(function(){
+            //向后台拿商品信息进行渲染
+            $.ajax({
+                url:"/shop/getRecommend",
+                type:"get",
+                success:function(result){
+                    $("#ad1").show();
+                    console.log(JSON.parse(result));
+                    console.log(JSON.parse(result).imagePath[0].goodid);
+                    /*var path = result.imagePath[0].goodid;*/
+                    var path = JSON.parse(result).imagePath[0].goodid;
+                    $("#wo").attr("href","/shop/detail?goodsid="+ path +"");
+                    var go = "";
+                    go = '<img onclick="shangpin()" id="shangpin" value="'+JSON.parse(result).imagePath[0].goodid+'" src='+'/shop/pictures/'+JSON.parse(result).imagePath[0].path+'>'
+                    $("#wo").append(go);
+                    console.log(result);
+                },
+                error:function(result){
+                    console.log("错误回调")
+                }
+            })
+        },1000)
+
+        /*$("#shangpin").on("click",function () {
+            console.log("进来了吗？")
+            $.ajax({
+                url:"/shop/detail",
+                type:get,
+                dataType:"get",
+                data:{"goodsid" : $("#shangpin").val()},
+                success:function (result) {
+                    console.log(result);
+                },
+                error:function (result) {
+                    console.log("错误回调")
+                }
+            })
+        })*/
+
+    })
+
+    function shangpin() {
+        console.log("${pageContext.request.contextPath}");
+        console.log("进来了吗？")
+        $.ajax({
+            url: "/shop/detail",
+            type: "get",
+            dataType: "post",
+            data: {"goodsid": $("#shangpin").val()},
+            success: function (result) {
+                console.log(result);
+            },
+            error: function (result) {
+                console.log("错误回调")
+            }
+        })
+    }
+
+    function guanbi() {
+        $("#ad1").hide();
+    }
+</script>
 </body>
 </html>
 

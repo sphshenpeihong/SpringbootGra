@@ -189,14 +189,15 @@ $(document).on("click","#saveActivity",function () {
     });
 });
 
+
 function to_page(path, page) {
     $.ajax({
         url: path + "/admin/goods/showjson",
         data: "page=" + page,
         type: "get",
         success: function (result) {
-
-            //解析显示
+            goodsInfo = result;
+            //解析显示111
             build_goods_table(path, result);
 
             //页面信息

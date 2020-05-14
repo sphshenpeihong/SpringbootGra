@@ -7,6 +7,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
@@ -16,6 +17,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableCaching  //支持缓存
 @EnableRedisHttpSession(maxInactiveIntervalInSeconds=60) //60秒
 @MapperScan("com.shen.ssmschoolshop.dao")
+//@ImportResource("classpath:application.xml") //将xml配置文件交给容器管理
 public class SpringbootSchoolShopApplication extends SpringBootServletInitializer {
 
     //上面增加了开启缓存注解，直接启动即可打开redis容器

@@ -29,4 +29,11 @@ public class AdminServiceImpl implements AdminService {
     public void addManager(Admin admin) {
         adminMapper.addManager(admin);
     }
+
+    @Override
+    public void userTopup(Integer money, Integer userId) {
+        //获得库中金额 加上接收的money  再更新库
+        Integer getMoney = this.adminMapper.getMoneyByUserId(userId);
+        this.adminMapper.userTopup(money+getMoney,userId);
+    }
 }

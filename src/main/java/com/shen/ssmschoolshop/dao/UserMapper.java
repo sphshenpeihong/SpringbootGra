@@ -29,4 +29,11 @@ public interface UserMapper {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+
+    /**
+     * 获得用户表所有用户
+     * @return
+     */
+    List<User> getAllUser();
+
 }

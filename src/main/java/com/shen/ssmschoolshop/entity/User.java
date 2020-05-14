@@ -16,6 +16,17 @@ public class User implements Serializable {
 
     private String telephone;
 
+    //用户金额 充值可以增加，默认是0
+    private Integer money;
+
+    public Integer getMoney() {
+        return money;
+    }
+
+    public void setMoney(Integer money) {
+        this.money = money;
+    }
+
     public Integer getUserid() {
         return userid;
     }

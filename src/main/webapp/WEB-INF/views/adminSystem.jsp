@@ -35,10 +35,8 @@
 
 
 <body>
-1232
 <div class="templatemo-flex-row">
     <jsp:include page="sidebar.jsp"/>
-    212322
     <!-- Main content -->
     <div class="templatemo-content col-1 light-gray-bg">
         <div class="templatemo-top-nav-container">
@@ -46,8 +44,8 @@
                 <nav class="templatemo-top-nav col-lg-12 col-md-12">
                     <ul class="text-uppercase">
                         <li><a href="${pageContext.request.contextPath}/admin/system" class="active">所有后台管理员</a></li>
-                        <c:if test="${isSuper == 1}"><li><a href="${pageContext.request.contextPath}/admin/addManager.do" class="active">添加普通管理员</a></li></c:if>
-                        <li><a href="${pageContext.request.contextPath}/admin/activity/add">充值功能</a></li>
+                        <c:if test="${isSuper == 1}"><li><a href="${pageContext.request.contextPath}/admin/addOrdManagerPage.do" class="active">添加普通管理员</a></li></c:if>
+                        <li><a href="${pageContext.request.contextPath}/admin/topUp.do">充值功能</a></li>
                         <%--<li><a href="${pageContext.request.contextPath}/admin/goods/addCategory">添加分类</a></li>--%>
                         <%--<li><a href="login.html">。。。</a></li>--%>
                     </ul>
@@ -76,7 +74,7 @@
                                         <td>超管</td>
                                     </c:when>
                                     <c:otherwise>
-                                        <td>普管管</td>
+                                        <td>普管</td>
                                     </c:otherwise>
                                 </c:choose>
                             </tr>

@@ -42,4 +42,13 @@ public interface AdminMapper {
      * @param admin
      */
     public void addManager(Admin admin);
+
+    /**
+     * 更新用户money接口
+     * @param money 充值金额
+     * @param userId 用户ID
+     */
+    public void userTopup(@Param("money") Integer money,@Param("userId") Integer userId);
+
+    public Integer getMoneyByUserId(@Param("userId") Integer userId);
 }

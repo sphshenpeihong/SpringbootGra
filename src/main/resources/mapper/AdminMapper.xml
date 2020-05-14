@@ -194,6 +194,16 @@
 
     <!-- public void addManager(Admin admin); -->
     <insert id="addManager" parameterType="admin">
-        INSERT INTO admin(adminID,adminName,PASSWORD,authority) VALUES (#{adminid},#{adminname},#{password},#{authority})
+        INSERT INTO admin(adminName,PASSWORD,authority) VALUES (#{adminname},#{password},#{authority})
     </insert>
+
+    <!--public void userTopup(Integer money,Integer userId);-->
+    <update id="userTopup" parameterType="map">
+      update user set money = #{money} where userId = #{userId}
+    </update>
+
+    <!--public Integer getMoneyByUserId(@Param("userId") Integer userId);-->
+    <select id="getMoneyByUserId" parameterType="Integer" resultType="Integer">
+      select money from user where userId = #{userId}
+    </select>
 </mapper>

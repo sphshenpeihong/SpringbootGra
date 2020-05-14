@@ -8,6 +8,12 @@ import com.shen.ssmschoolshop.service.CateService;
 import com.shen.ssmschoolshop.service.GoodsService;
 import com.shen.ssmschoolshop.util.ImageUtil;
 import com.shen.ssmschoolshop.util.Msg;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.streaming.SXSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,12 +25,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.awt.*;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Date;
+import java.io.*;
+import java.util.*;
 import java.util.List;
-import java.util.UUID;
 
 
 @Controller
@@ -84,6 +87,108 @@ public class GoodsController {
         model.addAttribute("categoryList", categoryList);
 
         return "adminAllGoods";
+    }
+
+    @ResponseBody
+    @RequestMapping("/exportExcel.do")
+    public ResultVO exportExcel(HttpServletRequest request,exportGoodsVO goods){
+        String[] goodsid = goods.getGoodsid().split("\\|");
+        String[] goodsname = goods.getGoodsname().split("\\|");
+        String[] price = goods.getPrice().split("\\|");
+        String[] num = goods.getNum().split("\\|");
+        String[] detailcate = goods.getDetailcate().split("\\|");
+        String[] activityid = goods.getActivityid().split("\\|");
+        long l = System.currentTimeMillis();
+        System.out.println("准备输出："+ l);
+        poiUtil(goodsid,goodsname,price,num,detailcate,activityid);
+        long l1 = new Date().getTime() - l;
+        System.out.println("输出完毕，用时(s)：" + l1/1000);
+        ResultVO resultVO = new ResultVO();
+        resultVO.setCode(200);
+        resultVO.setDesc("输出excel完毕");
+        return resultVO;
+    }
+
+    //POI输出工具类
+    public void poiUtil(String[] goodsid,String[] goodsname,String[] price,String[] num,String[] detailcate,String[] activityid){
+        Workbook workbook = new SXSSFWorkbook(-1);//新建Java工作簿
+        Sheet sheet1 = workbook.createSheet("sheet1");//给这张工作簿创建一张sheet并且取名字
+        for (int a=0;a<goodsid.length+1;a++){
+            sheet1.createRow(a);
+        }
+        head(sheet1);//填充头部
+        //填充各个字段
+        fill(goodsid,sheet1,0);
+        fill(goodsname,sheet1,1);
+        fill(price,sheet1,2);
+        fill(num,sheet1,3);
+        fill(detailcate,sheet1,4);
+        fill(activityid,sheet1,5);
+
+        /*
+        CellStyle cellStyle = workbook.createCellStyle();//通过工作簿封装的方法 新建单元格样式对象
+//下面开始封装单元格样式对象 到时候哪个需要此样式的单元格直接setCellStyle(cellStyle)即可
+        cellStyle.setBorderBottom(HSSFCellStyle.ALIGN_CENTER);//HSSFCellStyle里面定义了许多静态变量 设置下边框样式
+        cellStyle.setAlignment(HSSFCellStyle.ALIGN_CENTER);//设置样式 水平居中
+        cellStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);//设置样式 垂直居中
+        DataFormat dataFormat = workbook.createDataFormat();//由于HSSFDataFormar构造方法不是public 只能用工作簿去获取格式化构造方法
+        cellStyle.setDataFormat(dataFormat.getFormat("0.0")); //由于setDataFormat()是short类型，所以我们使用getFormat()也要选short类型的
+        cell13.setCellStyle(cellStyle);//给这个单元格设置上面封装的单元格样式
+        cell01.setCellStyle(cellStyle);//给这个单元格设置上面封装的单元格样式
+
+//设置表的行高列宽
+        System.out.println(workbook.getNumberOfSheets());//获取该工作簿的sheet表数量
+        Sheet sheet = workbook.getSheetAt(1); //获得该工作簿指定的第几张表
+        sheet.setDefaultColumnWidth(2000);//设置指定sheet的默认列宽
+        sheet.setDefaultRowHeight((short)2000);//设置指定sheet的默认行高
+        */
+
+        OutputStream output = null;//定义文件输出流
+        try {
+            Random random = new Random(100);
+            int k = random.nextInt();
+            output = new FileOutputStream("d:\\毕设excel\\商品"+ System.currentTimeMillis() +"excel.xls");
+            workbook.write(output);//把工作簿输出到文件输出流指定的位置
+        } catch (Exception e) {
+            System.out.println("异常抛出");
+            e.printStackTrace();
+        }
+
+    }
+
+    public static void head(Sheet sheet1){
+        Row row0 = sheet1.getRow(0);
+        Cell cell0 = row0.createCell(0);
+        Cell cell1 = row0.createCell(1);
+        Cell cell2 = row0.createCell(2);
+        Cell cell3 = row0.createCell(3);
+        Cell cell4 = row0.createCell(4);
+        Cell cell5 = row0.createCell(5);
+        //设置第一行头部
+        cell0.setCellValue("商品id");
+        cell1.setCellValue("商品名称");
+        cell2.setCellValue("商品价格");
+        cell3.setCellValue("商品数量");
+        cell4.setCellValue("商品类别");
+        cell5.setCellValue("活动id");
+    }
+
+    //传入数组与指定sheet表，将数组填充到指定列 行数记得递增
+    public static void fill(String[] temp,Sheet sheet,int j){
+        int i = 1;
+        /*for (String s : temp) {
+            Row row = sheet.createRow(i++);
+            Cell cell = row.createCell(j);
+            cell.setCellValue(s);
+        }*/
+        for(int z=0;z<temp.length;z++){
+            Row row = sheet.getRow(i++);
+            Cell cell = row.createCell(j);
+            cell.setCellValue(temp[z]);
+        }
+        System.out.println(sheet.getRow(1).getCell(0));
+        System.out.println(sheet.getRow(2).getCell(0));
+        System.out.println(sheet.getRow(3).getCell(0));
     }
 
     @RequestMapping("/add")

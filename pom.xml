@@ -189,6 +189,18 @@
             <!-- 去掉scope作用域，使用默认的compile，编译、测试、运行都有效的作用域 -->
             <!--<scope>test</scope>-->
         </dependency>
+
+        <!-- 引入poi相关jar包 -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.10-FINAL</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.10-FINAL</version>
+        </dependency>
     </dependencies>
 
 

@@ -181,6 +181,7 @@
         <div class="templatemo-content-container">
             <div class="templatemo-content-widget no-padding">
                 <div class="panel panel-default table-responsive">
+                    <div style="height: 50px;"><span style="color: #7f7f7f;font-size: 30px;">商品导出</span><input type="button" onclick="daochu()" value="导出"></div>
                     <table id="goodsinfo" class="table table-striped table-bordered templatemo-user-table">
                         <thead>
                         <tr>
@@ -271,6 +272,49 @@
         $('.templatemo-content-img-bg').css('background-image', 'url(' + imageUrl + ')');
         $('img.content-bg-img').hide();
     });
+
+    var goodsInfo ="";
+
+    //商品导出 路径等会后台自己指定
+    function daochu(){
+        var list0 = goodsInfo.info.pageInfo.list;
+        var goodsid = ""
+        var goodsname = ""
+        var price = ""
+        var num = ""
+        var detailcate = ""
+        var activityid = ""
+        for (var i=0;i<list0.length;i++){
+            //下面使用|拼接各个变量，到时候赋值给定义的数组即可
+            goodsid += list0[i].goodsid + '|';
+            goodsname += list0[i].goodsname + '|';
+            price += list0[i].price + '|';
+            num += list0[i].num + '|';
+            detailcate += list0[i].detailcate + '|';
+            activityid += list0[i].activityid + '|';
+        }
+        console.log(goodsid)
+        console.log(goodsname)
+        console.log(price)
+        console.log(num)
+        console.log(detailcate)
+        console.log(activityid)
+        $.ajax({
+            url:"/shop/admin/goods/exportExcel.do",
+            dataType:"json",
+            type:"post",
+            data:{"goodsid":goodsid,"goodsname":goodsname,"price":price,"num":num,"detailcate":detailcate,"activityid":activityid},
+            success:function (result) {
+                alert(result.desc);
+                window.location.reload()
+            },
+            error:function(result){
+                console.log("错误回调11");
+            }
+        })
+    }
+
+
 </script>
 </body>
 </html>

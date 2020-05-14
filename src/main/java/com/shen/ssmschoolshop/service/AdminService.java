@@ -19,4 +19,11 @@ public interface AdminService {
      * @param admin
      */
     public void addManager(Admin admin);
+
+    /**
+     * 提供充值接口
+     * @param money
+     * @param userId
+     */
+    public void userTopup(Integer money,Integer userId);
 }

@@ -17,4 +17,10 @@ public interface UserService {
 
     public void updateByPrimaryKeySelective(User user);
 
+    /**
+     * 获得所有用户表的用户
+     * @return
+     */
+    public List<User> getAllUser();
+
 }
