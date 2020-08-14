@@ -36,4 +36,8 @@ public interface UserMapper {
      */
     List<User> getAllUser();
 
+    List<String> getTest(List<String> list);
+
+    List<String> getTest1(String test);
+
 }

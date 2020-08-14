@@ -10,7 +10,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -42,7 +45,12 @@ public class OrderController {
      * @return
      */
     @RequestMapping("/order")
-    public String showOrder(HttpSession session, Model model) {
+    public String showOrder(HttpSession session, Model model, HttpServletResponse response) throws IOException {
+        Cookie cookie = new Cookie("username111","123444");
+        response.getWriter().println("非法的请求");
+        response.addHeader("OK","123");
+        response.addCookie(cookie);
+        session.setAttribute("shishikan","haode");
 
         User user = (User) session.getAttribute("user");
         if (user == null) {

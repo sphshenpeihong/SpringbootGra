@@ -6,6 +6,7 @@ import com.github.pagehelper.PageInfo;
 import com.shen.ssmschoolshop.entity.*;
 import com.shen.ssmschoolshop.service.GoodsService;
 import com.shen.ssmschoolshop.service.OrderService;
+import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +26,11 @@ public class AdminOrderController {
 
     @Autowired
     private GoodsService goodsService;
+
+    @Test
+    public void test11(){
+        System.out.println(orderService);
+    }
 
     /**
      * 后台管理员查看订单管理

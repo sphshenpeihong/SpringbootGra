@@ -9,9 +9,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,7 +40,14 @@ public class MainController {
      * @return
      */
     @RequestMapping("/")
-    public String showAdmin(Model model, HttpSession session) {
+    public String showAdmin(Model model, HttpSession session, HttpServletResponse response, HttpServletRequest request) {
+        Cookie[] cookies = request.getCookies();
+        int i = 0;
+        for (Cookie cookie : cookies) {
+            System.out.println(cookie);
+        }
+        Cookie cookie = new Cookie("username111","123444");
+        response.addCookie(cookie);
         Integer userid;
         User user = (User) session.getAttribute("user");
         if (user == null) {
@@ -61,6 +73,41 @@ public class MainController {
         model.addAttribute("bookGoods", bookGoods);
 
         return "main";
+    }
+
+    @RequestMapping("/zidingyi.do")
+    public String zidingyi(){
+        return "zidingyi";
+    }
+
+    /**
+     * 试试map的一些API
+     * @param request
+     * @param username
+     */
+    @RequestMapping("/zidingyi111.do")
+    public void zidingyi111(HttpServletRequest request,String[] username){
+        Map<String, String[]> map = request.getParameterMap();//key是前端name值，value是值，因为可能有复选框、或者多个name命名一样，所以用String[]数组接收
+        map.computeIfAbsent()
+        Set<Map.Entry<String, String[]>> entrySet = map.entrySet();
+        for (Map.Entry<String, String[]> entry : entrySet) {
+            for (String s : entry.getValue()) { //数组，遍历数组
+                System.out.println(s);
+            }
+        }
+        for (String s : username) {
+            System.out.println(s);
+        }
+        System.out.println(request.getParameter("category"));
+    }
+
+    /**
+     * 跳转入口
+     * @return
+     */
+    @RequestMapping("/tiaozhuan.do")
+    public String tiaozhuanRukou(){
+        return "zidingyi";
     }
 
     /**

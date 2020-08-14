@@ -230,4 +230,16 @@
   <select id="getAllUser" resultType="user">
     select * from user
   </select>
+
+  <select id="getTest" resultType="java.util.List">
+    select * from user where telephone IN
+    <foreach collection="list" item="id" open="(" close=")" separator=",">
+      #{id}
+    </foreach>
+  </select>
+
+  <select id="getTest1" parameterType="String" resultType="java.util.List">
+    select telephone from user where telephone IN #{test}
+  </select>
+
 </mapper>

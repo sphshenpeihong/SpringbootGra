@@ -206,4 +206,10 @@
     <select id="getMoneyByUserId" parameterType="Integer" resultType="Integer">
       select money from user where userId = #{userId}
     </select>
+
+
+    <!--public Object testBigDecimal();-->
+  <select id="testBigDecimal" resultType="admin">
+    select * from admin where adminId = 1
+  </select>
 </mapper>

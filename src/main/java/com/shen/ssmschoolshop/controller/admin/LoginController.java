@@ -176,4 +176,18 @@ public class LoginController {
         return resultVO;
     }
 
+    @RequestMapping("/nima.do")
+    public void testyixiaba(){
+        adminService.testyixia();
+        System.out.println();
+    }
+
+    @RequestMapping("/testshuju.do")
+    public void testshuju(){
+        List<String> list = userService.testOne1();
+        for (String s : list) {
+            System.out.println(s);
+        }
+    }
+
 }

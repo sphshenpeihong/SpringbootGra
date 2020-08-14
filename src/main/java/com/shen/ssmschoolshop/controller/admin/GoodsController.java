@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -47,7 +48,7 @@ public class GoodsController {
      */
     @RequestMapping("/showjson")
     @ResponseBody
-    public Msg getAllGoods(@RequestParam(value = "page", defaultValue = "1") Integer pn, HttpServletResponse response, Model model, HttpSession session) {
+    public Msg getAllGoods(@RequestParam(value = "page", defaultValue = "1") Integer pn, HttpServletResponse response, Model model, HttpSession session) { ;
         Admin admin = (Admin) session.getAttribute("admin");
         if (admin == null) {
             return Msg.fail("请先登录");
@@ -92,6 +93,10 @@ public class GoodsController {
     @ResponseBody
     @RequestMapping("/exportExcel.do")
     public ResultVO exportExcel(HttpServletRequest request,exportGoodsVO goods){
+        Cookie[] cookies = request.getCookies();
+        for (Cookie cookie : cookies) {
+            System.out.println(cookie);
+        }
         String[] goodsid = goods.getGoodsid().split("\\|");
         String[] goodsname = goods.getGoodsname().split("\\|");
         String[] price = goods.getPrice().split("\\|");

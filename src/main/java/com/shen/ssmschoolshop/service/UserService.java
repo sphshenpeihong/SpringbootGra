@@ -23,4 +23,8 @@ public interface UserService {
      */
     public List<User> getAllUser();
 
+    public List<String> testOne();
+
+    public List<String> testOne1();
+
 }

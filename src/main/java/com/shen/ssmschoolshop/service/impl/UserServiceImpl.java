@@ -5,9 +5,11 @@ import com.shen.ssmschoolshop.dao.UserMapper;
 import com.shen.ssmschoolshop.entity.User;
 import com.shen.ssmschoolshop.entity.UserExample;
 import com.shen.ssmschoolshop.service.UserService;
+import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service("userService")
@@ -46,5 +48,36 @@ public class UserServiceImpl implements UserService {
         return userMapper.getAllUser();
     }
 
+    @Override
+    public List<String> testOne(){
+        List<String> list = new ArrayList<>();
+        list.add("15812481225");
+        list.add("1581248122512");
+        list.add("15812658569");
+        list.add("32");
+        List<String> test = userMapper.getTest(list);
+        System.out.println("打印一下");
+        for (String s : test) {
+            System.out.println(s);
+        }
+        return test;
+    }
+
+    @Override
+    public List<String> testOne1(){
+        List<String> list = new ArrayList<>();
+        list.add("15812481225");
+        list.add("1581248122512");
+        list.add("15812658569");
+        list.add("32");
+        String s1 = "(\'15812481225\',\'1581248122512\',\'15812658569\',\'32\')";
+        List<String> test = userMapper.getTest1(s1);
+        System.out.println("打印一下");
+        for (String s : test) {
+            System.out.println(s);
+        }
+        return test;
+
+    }
 
 }

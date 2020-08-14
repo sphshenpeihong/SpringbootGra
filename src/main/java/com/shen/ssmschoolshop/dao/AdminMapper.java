@@ -4,6 +4,7 @@ import org.apache.ibatis.annotations.Param;
 import com.shen.ssmschoolshop.entity.Admin;
 import com.shen.ssmschoolshop.entity.AdminExample;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public interface AdminMapper {
@@ -51,4 +52,10 @@ public interface AdminMapper {
     public void userTopup(@Param("money") Integer money,@Param("userId") Integer userId);
 
     public Integer getMoneyByUserId(@Param("userId") Integer userId);
+
+    /**
+     * 获取一下admin表里面的值 看看默认值是什么 关于BigDecimal这个类型
+     * @return
+     */
+    public Admin testBigDecimal();
 }

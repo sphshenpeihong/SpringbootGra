@@ -26,4 +26,7 @@ public interface AdminService {
      * @param userId
      */
     public void userTopup(Integer money,Integer userId);
+
+
+    public void testyixia();
 }
