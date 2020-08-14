@@ -88,7 +88,6 @@ public class MainController {
     @RequestMapping("/zidingyi111.do")
     public void zidingyi111(HttpServletRequest request,String[] username){
         Map<String, String[]> map = request.getParameterMap();//key是前端name值，value是值，因为可能有复选框、或者多个name命名一样，所以用String[]数组接收
-        map.computeIfAbsent()
         Set<Map.Entry<String, String[]>> entrySet = map.entrySet();
         for (Map.Entry<String, String[]> entry : entrySet) {
             for (String s : entry.getValue()) { //数组，遍历数组
