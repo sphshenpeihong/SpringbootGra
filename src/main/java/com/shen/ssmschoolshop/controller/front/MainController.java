@@ -4,7 +4,6 @@ package com.shen.ssmschoolshop.controller.front;
 import com.shen.ssmschoolshop.entity.*;
 import com.shen.ssmschoolshop.service.CateService;
 import com.shen.ssmschoolshop.service.GoodsService;
-import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
